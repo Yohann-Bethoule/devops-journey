@@ -25,8 +25,6 @@ info:
 paths:
   /:
     get:
-      consumes:
-      - application/json
       description: Fetch all todos in the database
       produces:
       - application/json
@@ -81,6 +79,103 @@ paths:
           schema:
             type: string
       summary: Create a todo
+  /{id}:
+    delete:
+      description: Delete a todo from its id
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete a todo
+    get:
+      description: Fetch a todos from its id
+      parameters:
+      - description: todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Todo'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Fetch a todos
+    put:
+      consumes:
+      - application/json
+      description: Update label and done status of a todo
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Todo label
+        in: body
+        name: label
+        schema:
+          type: string
+      - description: True if the todo is done
+        in: body
+        name: isDone
+        schema:
+          type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Update a todo
 securityDefinitions:
   BasicAuth:
     type: basic

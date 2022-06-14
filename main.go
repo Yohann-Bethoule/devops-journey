@@ -90,7 +90,6 @@ func createTodo(c *gin.Context) {
 // fetchAllTodo godoc
 // @Summary      Fetch all todos
 // @Description  Fetch all todos in the database
-// @Accept       json
 // @Produce      json
 // @Success      200  {array}  models.Todo
 // @Failure      400  {string}  Invalid request payload
@@ -108,6 +107,16 @@ func fetchAllTodo(c *gin.Context) {
 	}
 }
 
+// fetchSingleTodo godoc
+// @Summary      Fetch a todos
+// @Description  Fetch a todos from its id
+// @Param        id   path      integer  true  "todo ID"
+// @Produce      json
+// @Success      200  {object}  models.Todo
+// @Failure      400  {string}  Invalid request payload
+// @Failure      404  {string}  Not found
+// @Failure      500  {string}  Internal server error
+// @Router       /{id} [get]
 func fetchSingleTodo(c *gin.Context) {
 	id := c.Param("id")
 	todo, err := models.GetTodoById(id)
@@ -124,6 +133,19 @@ func fetchSingleTodo(c *gin.Context) {
 	}
 }
 
+// updateTodo godoc
+// @Summary      Update a todo
+// @Description  Update label and done status of a todo
+// @Param        id   	path	integer  true   "Todo ID"
+// @Param        label  body    string   false  "Todo label"
+// @Param        isDone body    boolean  false  "True if the todo is done"
+// @Accept       json
+// @Produce      json
+// @Success      200  {string}  Todo Updated Successfully
+// @Failure      400  {string}  Invalid request payload
+// @Failure      404  {string}  Not found
+// @Failure      500  {string}  Internal server error
+// @Router       /{id} [put]
 func updateTodo(c *gin.Context) {
 	var json models.Todo
 
@@ -149,6 +171,16 @@ func updateTodo(c *gin.Context) {
 	}
 }
 
+// deleteTodo godoc
+// @Summary      Delete a todo
+// @Description  Delete a todo from its id
+// @Param        id   	path	integer  true   "Todo ID"
+// @Produce      json
+// @Success      200  {string}  Todo Deleted Successfully
+// @Failure      400  {string}  Invalid request payload
+// @Failure      404  {string}  Not found
+// @Failure      500  {string}  Internal server error
+// @Router       /{id} [delete]
 func deleteTodo(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 
