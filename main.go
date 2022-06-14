@@ -6,9 +6,29 @@ import (
 	"net/http"
 	"strconv"
 
+	_ "go-rest-api/docs"
+
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
+// @title           Devops Journey Go API
+// @version         1.0
+// @description     Petit test pour le développement d'une API en Go
+// @termsOfService  http://swagger.io/terms/
+
+// @contact.name   Yohann Bethoule
+// @contact.url    http://www.swagger.io/support
+// @contact.email  ybethoule@figarocms.fr
+
+// @license.name  Apache 2.0
+// @license.url   http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host      localhost:8080
+// @BasePath  /api/v1
+
+// @securityDefinitions.basic  BasicAuth
 func main() {
 	r := gin.Default()
 
@@ -21,6 +41,8 @@ func main() {
 		v1.PUT("/:id", updateTodo)
 		v1.DELETE("/:id", deleteTodo)
 	}
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	models.ConnectDatabase()
 
@@ -35,6 +57,17 @@ func checkErr(err error) {
 	}
 }
 
+// createTodo godoc
+// @Summary      Create a todo
+// @Description  Create a todo with a label
+// @Accept       json
+// @Produce      json
+// @Param        label   body      string  true  "Label of the task to do"
+// @Success      200  {string}  string "Ok"
+// @Failure      400  {string}  string "Invalid request payload"
+// @Failure      404  {string}  string "Not found"
+// @Failure      500  {string}  string "Internal server error"
+// @Router       / [post]
 func createTodo(c *gin.Context) {
 	var json models.Todo
 
@@ -54,8 +87,18 @@ func createTodo(c *gin.Context) {
 	}
 }
 
+// fetchAllTodo godoc
+// @Summary      Fetch all todos
+// @Description  Fetch all todos in the database
+// @Accept       json
+// @Produce      json
+// @Success      200  {array}  models.Todo
+// @Failure      400  {string}  Invalid request payload
+// @Failure      404  {string}  Not found
+// @Failure      500  {string}  Internal server error
+// @Router       / [get]
 func fetchAllTodo(c *gin.Context) {
-	todos, err := models.GetTodos(10)
+	todos, err := models.GetTodos()
 	checkErr(err)
 	if todos == nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "No Records Found"})

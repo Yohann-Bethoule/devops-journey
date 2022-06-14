@@ -1,0 +1,87 @@
+basePath: /api/v1
+definitions:
+  models.Todo:
+    properties:
+      id:
+        type: integer
+      isDone:
+        type: boolean
+      label:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: ybethoule@figarocms.fr
+    name: Yohann Bethoule
+    url: http://www.swagger.io/support
+  description: Petit test pour le développement d'une API en Go
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Devops Journey Go API
+  version: "1.0"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Fetch all todos in the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Todo'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Fetch all todos
+    post:
+      consumes:
+      - application/json
+      description: Create a todo with a label
+      parameters:
+      - description: Label of the task to do
+        in: body
+        name: label
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Ok
+          schema:
+            type: string
+        "400":
+          description: Invalid request payload
+          schema:
+            type: string
+        "404":
+          description: Not found
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Create a todo
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

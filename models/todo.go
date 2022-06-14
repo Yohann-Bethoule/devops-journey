@@ -2,7 +2,6 @@ package models
 
 import (
 	"database/sql"
-	"strconv"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -25,9 +24,9 @@ type Todo struct {
 	Done  bool   `json:"isDone"`
 }
 
-func GetTodos(count int) ([]Todo, error) {
+func GetTodos() ([]Todo, error) {
 
-	rows, err := DB.Query("SELECT id, label, done FROM task LIMIT " + strconv.Itoa(count))
+	rows, err := DB.Query("SELECT id, label, done FROM task")
 
 	if err != nil {
 		return nil, err
