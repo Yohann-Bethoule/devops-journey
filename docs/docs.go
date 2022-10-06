@@ -32,6 +32,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Fetch all todos",
+                "operationId": "fetch-all-todos",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -71,6 +72,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Create a todo",
+                "operationId": "create-todo",
                 "parameters": [
                     {
                         "description": "Label of the task to do",
@@ -117,6 +119,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Fetch a todo",
+                "operationId": "fetch-single-todo",
                 "parameters": [
                     {
                         "type": "integer",
@@ -162,6 +165,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Update a todo",
+                "operationId": "update-todo",
                 "parameters": [
                     {
                         "type": "integer",
@@ -220,6 +224,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "summary": "Delete a todo",
+                "operationId": "delete-todo",
                 "parameters": [
                     {
                         "type": "integer",

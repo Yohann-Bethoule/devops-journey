@@ -60,6 +60,7 @@ func checkErr(err error) {
 // createTodo godoc
 // @Summary      Create a todo
 // @Description  Create a todo with a label
+// @ID create-todo
 // @Accept       json
 // @Produce      json
 // @Param        label   body      string  true  "Label of the task to do"
@@ -90,6 +91,7 @@ func createTodo(c *gin.Context) {
 // fetchAllTodo godoc
 // @Summary      Fetch all todos
 // @Description  Fetch all todos in the database
+// @ID fetch-all-todos
 // @Produce      json
 // @Success      200  {array}  models.Todo
 // @Failure      400  {string}  Invalid request payload
@@ -110,6 +112,7 @@ func fetchAllTodo(c *gin.Context) {
 // fetchSingleTodo godoc
 // @Summary      Fetch a todo
 // @Description  Fetch a todo from its id
+// @ID fetch-single-todo
 // @Param        id   path      integer  true  "todo ID"
 // @Produce      json
 // @Success      200  {object}  models.Todo
@@ -136,6 +139,7 @@ func fetchSingleTodo(c *gin.Context) {
 // updateTodo godoc
 // @Summary      Update a todo
 // @Description  Update label and done status of a todo
+// @ID update-todo
 // @Param        id   	path	integer  true   "Todo ID"
 // @Param        label  body    string   false  "Todo label"
 // @Param        isDone body    boolean  false  "True if the todo is done"
@@ -174,6 +178,7 @@ func updateTodo(c *gin.Context) {
 // deleteTodo godoc
 // @Summary      Delete a todo
 // @Description  Delete a todo from its id
+// @ID delete-todo
 // @Param        id   	path	integer  true   "Todo ID"
 // @Produce      json
 // @Success      200  {string}  Todo Deleted Successfully

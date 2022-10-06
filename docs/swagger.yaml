@@ -26,6 +26,7 @@ paths:
   /:
     get:
       description: Fetch all todos in the database
+      operationId: fetch-all-todos
       produces:
       - application/json
       responses:
@@ -52,6 +53,7 @@ paths:
       consumes:
       - application/json
       description: Create a todo with a label
+      operationId: create-todo
       parameters:
       - description: Label of the task to do
         in: body
@@ -82,6 +84,7 @@ paths:
   /{id}:
     delete:
       description: Delete a todo from its id
+      operationId: delete-todo
       parameters:
       - description: Todo ID
         in: path
@@ -110,6 +113,7 @@ paths:
       summary: Delete a todo
     get:
       description: Fetch a todo from its id
+      operationId: fetch-single-todo
       parameters:
       - description: todo ID
         in: path
@@ -140,6 +144,7 @@ paths:
       consumes:
       - application/json
       description: Update label and done status of a todo
+      operationId: update-todo
       parameters:
       - description: Todo ID
         in: path
