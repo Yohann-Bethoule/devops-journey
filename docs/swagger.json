@@ -16,7 +16,7 @@
         "version": "1.0"
     },
     "host": "ybethoule-rest-api.endpoints.project-staging1.cloud.goog",
-    "basePath": "/api/v1/",
+    "basePath": "/",
     "paths": {
         "/": {
             "get": {
