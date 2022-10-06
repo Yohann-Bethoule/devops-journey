@@ -9,7 +9,7 @@ definitions:
       label:
         type: string
     type: object
-host: localhost:8080
+host: ybethoule-rest-api.endpoints.project-staging1.cloud.goog
 info:
   contact:
     email: ybethoule@figarocms.fr
@@ -109,7 +109,7 @@ paths:
             type: string
       summary: Delete a todo
     get:
-      description: Fetch a todos from its id
+      description: Fetch a todo from its id
       parameters:
       - description: todo ID
         in: path
@@ -135,7 +135,7 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Fetch a todos
+      summary: Fetch a todo
     put:
       consumes:
       - application/json

@@ -112,11 +112,11 @@ const docTemplate = `{
         },
         "/{id}": {
             "get": {
-                "description": "Fetch a todos from its id",
+                "description": "Fetch a todo from its id",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Fetch a todos",
+                "summary": "Fetch a todo",
                 "parameters": [
                     {
                         "type": "integer",
@@ -284,7 +284,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8080",
+	Host:             "ybethoule-rest-api.endpoints.project-staging1.cloud.goog",
 	BasePath:         "/api/v1",
 	Schemes:          []string{},
 	Title:            "Devops Journey Go API",

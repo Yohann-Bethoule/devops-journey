@@ -15,7 +15,7 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "ybethoule-rest-api.endpoints.project-staging1.cloud.goog",
     "basePath": "/api/v1",
     "paths": {
         "/": {
@@ -105,11 +105,11 @@
         },
         "/{id}": {
             "get": {
-                "description": "Fetch a todos from its id",
+                "description": "Fetch a todo from its id",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Fetch a todos",
+                "summary": "Fetch a todo",
                 "parameters": [
                     {
                         "type": "integer",
