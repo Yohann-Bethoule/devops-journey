@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ybethoule-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ybethoule-api
+  template:
+    metadata:
+      labels:
+        app: ybethoule-api
+        environment: dev
+    spec:
+      containers:
+      - name: ybethoule-api
+        image: gcr.io/project-staging1/ybethoule-rest-api:1.0
+        ports:
+        - containerPort: 80

@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/wget'
+    args: ['-O', './docs/swagger.yaml', 'http://mon-url/swagger.yaml']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['endpoints', 'services', 'deploy', './docs/swagger.yaml', '--project=project-staging1']

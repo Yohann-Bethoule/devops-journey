@@ -108,8 +108,8 @@ func fetchAllTodo(c *gin.Context) {
 }
 
 // fetchSingleTodo godoc
-// @Summary      Fetch a todos
-// @Description  Fetch a todos from its id
+// @Summary      Fetch a todo
+// @Description  Fetch a todo from its id
 // @Param        id   path      integer  true  "todo ID"
 // @Produce      json
 // @Success      200  {object}  models.Todo
