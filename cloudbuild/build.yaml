@@ -11,9 +11,5 @@ steps:
   args: ['ls',  '-la']
 - name: 'bash'
   args: ['pwd']
-- name: 'bash'
-  args: ['cd',  '..']
-- name: 'bash'
-  args: ['ls',  '-la']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['endpoints', 'services', 'deploy', '../docs/swagger.yaml', '--project=project-staging1']
