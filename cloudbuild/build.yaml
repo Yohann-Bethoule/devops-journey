@@ -9,6 +9,6 @@ steps:
   args: [ 'push', 'gcr.io/project-staging1/ybethoule-rest-api:1.0']
 - name: 'ubuntu'
   entrypoint: 'bash'
-  args: ['ls -la']
+  args: ['ls',  '-la']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['endpoints', 'services', 'deploy', '../docs/swagger.yaml', '--project=project-staging1']
