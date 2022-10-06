@@ -7,9 +7,8 @@ steps:
   args: [ 'tag', 'go-rest-api:latest', 'gcr.io/project-staging1/ybethoule-rest-api:1.0' ]
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'push', 'gcr.io/project-staging1/ybethoule-rest-api:1.0']
-steps:
-  - name: 'ubuntu'
-    entrypoint: 'bash'
-    args: ['ls -la']
+- name: 'ubuntu'
+  entrypoint: 'bash'
+  args: ['ls -la']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['endpoints', 'services', 'deploy', '../docs/swagger.yaml', '--project=project-staging1']
