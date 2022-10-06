@@ -1,5 +1,11 @@
 steps:
-  - name: 'gcr.io/cloud-builders/wget'
-    args: ['-O', './docs/swagger.yaml', 'http://mon-url/swagger.yaml']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['endpoints', 'services', 'deploy', './docs/swagger.yaml', '--project=project-staging1']
+- name: 'gcr.io/cloud-builders/wget'
+  args: ['-O', 'localfile.tar.gz', 'https://drive.google.com/uc?export=download&id=1bb6JmAQA8-bA2shTZrNPKXwVAz0bnErJ']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['load', '-i', 'localfile.tar.gz']
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'tag', 'go-rest-api:latest', 'gcr.io/project-staging1/ybethoule-rest-api:1.0' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'gcr.io/project-staging1/ybethoule-rest-api:1.0']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['endpoints', 'services', 'deploy', './docs/swagger.yaml', '--project=project-staging1']
