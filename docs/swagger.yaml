@@ -1,4 +1,4 @@
-basePath: /api/v1
+basePath: /api/v1/
 definitions:
   models.Todo:
     properties:
@@ -181,7 +181,4 @@ paths:
           schema:
             type: string
       summary: Update a todo
-securityDefinitions:
-  BasicAuth:
-    type: basic
 swagger: "2.0"

@@ -278,11 +278,6 @@ const docTemplate = `{
                 }
             }
         }
-    },
-    "securityDefinitions": {
-        "BasicAuth": {
-            "type": "basic"
-        }
     }
 }`
 
@@ -290,7 +285,7 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "ybethoule-rest-api.endpoints.project-staging1.cloud.goog",
-	BasePath:         "/api/v1",
+	BasePath:         "/api/v1/",
 	Schemes:          []string{},
 	Title:            "Devops Journey Go API",
 	Description:      "Petit test pour le développement d'une API en Go",
