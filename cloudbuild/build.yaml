@@ -9,5 +9,9 @@ steps:
   args: [ 'push', 'gcr.io/project-staging1/ybethoule-rest-api:1.0']
 - name: 'bash'
   args: ['ls',  '-la']
+- name: 'bash'
+  args: ['cd',  '..']
+- name: 'bash'
+  args: ['ls',  '-la']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['endpoints', 'services', 'deploy', '../docs/swagger.yaml', '--project=project-staging1']
