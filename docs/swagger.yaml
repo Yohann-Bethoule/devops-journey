@@ -23,7 +23,7 @@ info:
   title: Devops Journey Go API
   version: "1.0"
 paths:
-  /:
+  /api/v1/:
     get:
       description: Fetch all todos in the database
       operationId: fetch-all-todos
@@ -81,7 +81,7 @@ paths:
           schema:
             type: string
       summary: Create a todo
-  /{id}:
+  /api/v1/{id}:
     delete:
       description: Delete a todo from its id
       operationId: delete-todo
