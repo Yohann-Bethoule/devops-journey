@@ -46,7 +46,7 @@ func main() {
 
 	// By default it serves on :8080 unless a
 	// PORT environment variable was defined.
-	r.Run()
+	r.Run(":80")
 }
 
 func checkErr(err error) {
