@@ -18,7 +18,7 @@
     "host": "ybethoule-rest-api.endpoints.project-staging1.cloud.goog",
     "basePath": "/",
     "paths": {
-        "/": {
+        "/api/v1": {
             "get": {
                 "description": "Fetch all todos in the database",
                 "produces": [
@@ -105,7 +105,7 @@
                 }
             }
         },
-        "/{id}": {
+        "/api/v1/{id}": {
             "get": {
                 "description": "Fetch a todo from its id",
                 "produces": [

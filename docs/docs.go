@@ -25,7 +25,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/": {
+        "/api/v1": {
             "get": {
                 "description": "Fetch all todos in the database",
                 "produces": [
@@ -112,7 +112,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/{id}": {
+        "/api/v1/{id}": {
             "get": {
                 "description": "Fetch a todo from its id",
                 "produces": [

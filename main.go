@@ -63,7 +63,7 @@ func checkErr(err error) {
 // @Failure      400  {string}  string "Invalid request payload"
 // @Failure      404  {string}  string "Not found"
 // @Failure      500  {string}  string "Internal server error"
-// @Router       / [post]
+// @Router       /api/v1 [post]
 func createTodo(c *gin.Context) {
 	var json models.Todo
 
@@ -92,7 +92,7 @@ func createTodo(c *gin.Context) {
 // @Failure      400  {string}  Invalid request payload
 // @Failure      404  {string}  Not found
 // @Failure      500  {string}  Internal server error
-// @Router       / [get]
+// @Router       /api/v1 [get]
 func fetchAllTodo(c *gin.Context) {
 	todos, err := models.GetTodos()
 	checkErr(err)
@@ -114,7 +114,7 @@ func fetchAllTodo(c *gin.Context) {
 // @Failure      400  {string}  Invalid request payload
 // @Failure      404  {string}  Not found
 // @Failure      500  {string}  Internal server error
-// @Router       /{id} [get]
+// @Router       /api/v1/{id} [get]
 func fetchSingleTodo(c *gin.Context) {
 	id := c.Param("id")
 	todo, err := models.GetTodoById(id)
@@ -144,7 +144,7 @@ func fetchSingleTodo(c *gin.Context) {
 // @Failure      400  {string}  Invalid request payload
 // @Failure      404  {string}  Not found
 // @Failure      500  {string}  Internal server error
-// @Router       /{id} [put]
+// @Router       /api/v1/{id} [put]
 func updateTodo(c *gin.Context) {
 	var json models.Todo
 
@@ -180,7 +180,7 @@ func updateTodo(c *gin.Context) {
 // @Failure      400  {string}  Invalid request payload
 // @Failure      404  {string}  Not found
 // @Failure      500  {string}  Internal server error
-// @Router       /{id} [delete]
+// @Router       /api/v1/{id} [delete]
 func deleteTodo(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 
