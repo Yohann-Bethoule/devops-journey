@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/wget'
-  args: ['-O', 'localfile.tar.gz', 'https://drive.google.com/uc?export=download&id=1bb6JmAQA8-bA2shTZrNPKXwVAz0bnErJ']
+  args: ['-O', 'localfile.tar.gz', 'https://drive.google.com/uc?export=download&id=1UvtpbzE15dV_HBaFeq0oOx9ShbzKihuW']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['load', '-i', 'localfile.tar.gz']
 - name: 'gcr.io/cloud-builders/docker'
